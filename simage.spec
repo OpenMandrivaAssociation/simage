@@ -14,7 +14,6 @@ Release: %{release}
 Source0: %{name}-%{version}.tar.bz2
 License: GPL
 Group: Graphics
-BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://www.coin3d.org/
 
 %description 
