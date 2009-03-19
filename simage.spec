@@ -1,21 +1,20 @@
 %define name simage
 %define version 1.6.1
-%define release %mkrel 3
+%define release %mkrel 5
 
 %define major 20
 %define libname %mklibname %name %major
-%define libnamedev %mklibname %name %major -d
+%define develname %mklibname %name -d
 
-
-Summary: A support library for importing textures and sound files in various fileformats
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
+Summary: A support library for importing textures and sound files in various fileformats
 License: GPL
 Group: Graphics
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.coin3d.org/
+Source0: http://ftp.coin3d.org/coin/src/all/%{name}-%{version}.tar.bz2
+BuildRoot: %{_tmppath}/%{name}-%{version}
 
 %description 
 simage is a support library for importing textures and sound files in
@@ -30,14 +29,14 @@ Provides: %{name} = %{version}-%{release}
 This package contains the library needed to run programs dynamically
 linked with simage.
 
-%package -n %{libnamedev}
+%package -n %{develname}
 Summary: Headers for developing programs that will use simage
 Group: Development/C++
 Requires: %{libname} = %{version}
 Provides: %{name}-devel = %{version}-%{release}
-Provides: libsimage-devel
+Obsoletes: %mklibname %name -d 20
 
-%description -n %{libnamedev}
+%description -n %{develname}
 This package contains the headers that programmers will need to develop
 applications which will use simage.
 
@@ -52,21 +51,21 @@ applications which will use simage.
 %setup -q
 
 %build
-%configure --with-mpeg2enc 
+%configure2_5x --with-mpeg2enc 
 %make
 
 %install
 %makeinstall
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -n %{libname}
-%defattr(-,root,root,0755)
+%defattr(-,root,root)
 %{_libdir}/*.so.*
 
-%files -n %{libnamedev}
-%defattr(-,root,root,0755)
+%files -n %{develname}
+%defattr(-,root,root)
 %doc README AUTHORS NEWS COPYING
 %_bindir/*
 %_libdir/*.so
@@ -74,5 +73,3 @@ rm -rf $RPM_BUILD_ROOT
 %_includedir/*
 %_datadir/Coin/conf/*
 %_datadir/aclocal/*
-#%_mandir/man1/*
-
