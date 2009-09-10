@@ -1,6 +1,6 @@
 %define name simage
 %define version 1.6.1
-%define release %mkrel 5
+%define release %mkrel 6
 
 %define major 20
 %define libname %mklibname %name %major
