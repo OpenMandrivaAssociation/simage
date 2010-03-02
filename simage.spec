@@ -1,40 +1,40 @@
 %define name simage
-%define version 1.6.1
-%define release %mkrel 6
+%define version 1.7.0
+%define release %mkrel 1
 
 %define major 20
 %define libname %mklibname %name %major
 %define develname %mklibname %name -d
 
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Summary: A support library for importing textures and sound files in various fileformats
-License: GPL
-Group: Graphics
-URL: http://www.coin3d.org/
-Source0: http://ftp.coin3d.org/coin/src/all/%{name}-%{version}.tar.bz2
-BuildRoot: %{_tmppath}/%{name}-%{version}
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Summary:	A support library for importing textures and sound files in various fileformats
+License:	GPLv2
+Group:		Graphics
+URL:		http://www.coin3d.org/
+Source0:	http://ftp.coin3d.org/coin/src/all/%{name}-%{version}.tar.gz
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description 
 simage is a support library for importing textures and sound files in
 various fileformats
 
 %package -n %{libname}
-Summary: Main library for simage
-Group: System/Libraries
-Provides: %{name} = %{version}-%{release}
+Summary:	Main library for simage
+Group:		System/Libraries
+Provides:	%{name} = %{version}-%{release}
 
 %description -n %{libname}
 This package contains the library needed to run programs dynamically
 linked with simage.
 
 %package -n %{develname}
-Summary: Headers for developing programs that will use simage
-Group: Development/C++
-Requires: %{libname} = %{version}
-Provides: %{name}-devel = %{version}-%{release}
-Obsoletes: %mklibname %name -d 20
+Summary:	Headers for developing programs that will use simage
+Group:		Development/C++
+Requires:	%{libname} = %{version}
+Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%mklibname %name -d 20
 
 %description -n %{develname}
 This package contains the headers that programmers will need to develop
@@ -55,6 +55,7 @@ applications which will use simage.
 %make
 
 %install
+rm -rf $RPM_BUILD_ROOT
 %makeinstall
 
 %clean
@@ -70,6 +71,7 @@ rm -rf %{buildroot}
 %_bindir/*
 %_libdir/*.so
 %_libdir/*.la
+%_libdir/pkgconfig/simage.pc
 %_includedir/*
 %_datadir/Coin/conf/*
 %_datadir/aclocal/*
