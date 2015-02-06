@@ -4,7 +4,7 @@
 
 Name:		simage
 Version:	1.7.0
-Release:	3
+Release:	4
 Summary:	A support library for importing textures and sound files in various fileformats
 License:	GPLv2
 Group:		Graphics
