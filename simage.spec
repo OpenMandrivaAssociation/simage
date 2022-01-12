@@ -17,6 +17,7 @@ BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	pkgconfig(libtiff-4)
 BuildRequires:	pkgconfig(vorbisfile)
+BuildRequires:	pkgconfig(flac)
 
 %description 
 simage is a support library for importing textures and sound files in
