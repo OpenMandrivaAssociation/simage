@@ -8,7 +8,7 @@ Release:	1
 Summary:	A support library for importing textures and sound files in various fileformats
 License:	GPLv2
 Group:		Graphics
-URL:		http://coin3d.github.io/
+URL:		https://coin3d.github.io/
 Source0:	https://github.com/coin3d/simage/releases/download/v%{version}/simage-%{version}-src.tar.gz
 BuildRequires:	cmake ninja
 BuildRequires:	giflib-devel
