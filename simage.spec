@@ -3,7 +3,7 @@
 %define develname %mklibname %name -d
 
 Name:		simage
-Version:	1.8.3
+Version:	1.8.4
 Release:	1
 Summary:	A support library for importing textures and sound files in various fileformats
 License:	GPLv2
